@@ -1,0 +1,10 @@
+name: Compile to wasm
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: mymindstorm/setup-emsdk@v11
+      - uses: actions/checkout@v2
+      - name: Confirm that the build passes
+        run: ${GITHUB_WORKSPACE}/build.sh
