@@ -71,7 +71,7 @@ void Wasm::Render() {
 void console_log(const std::string& text) {
 
     EM_ASM_({
-        console.log("wasm:",Pointer_stringify($0));
+        console.log("wasm:",UTF8ToString($0));
     }, text.c_str());
 }
 
@@ -83,7 +83,7 @@ extern "C" {
      */
     int wasm_init() {
         console_log("wasm_init");
-        return wasm.Init("mycanvas",1280,720);
+        return wasm.Init("#mycanvas",1280,720);
     }
 
 
